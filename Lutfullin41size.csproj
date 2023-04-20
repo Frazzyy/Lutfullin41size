@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +64,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LutfullinModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderProduct.cs">
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PickUPPoint.cs">
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>LutfullinModel.tt</DependentUpon>
+    </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,6 +101,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LutfullinModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LutfullinModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LutfullinModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LutfullinModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -101,6 +143,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="LutfullinModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LutfullinModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="LutfullinModel.edmx.diagram">
+      <DependentUpon>LutfullinModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,6 +164,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LutfullinModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LutfullinModel.Context.cs</LastGenOutput>
+      <DependentUpon>LutfullinModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="LutfullinModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LutfullinModel.edmx</DependentUpon>
+      <LastGenOutput>LutfullinModel.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resource\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

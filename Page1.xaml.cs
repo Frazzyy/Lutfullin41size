@@ -23,6 +23,10 @@ namespace Lutfullin41size
         public Page1()
         {
             InitializeComponent();
+
+            var currentServices = Lutfullin41Entities.GetContext().Product.ToList();
+
+            ProductListView.ItemsSource = currentServices;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
